@@ -37,10 +37,7 @@ export const Contact = () => {
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                  <div className="text-muted-foreground">
-                    <p>+383 48 878 222</p>
-                    <p>+383 48 878 111</p>
-                  </div>
+                  <p className="text-muted-foreground">+383 48 878 222</p>
                 </div>
               </div>
             </CardContent>
@@ -63,6 +60,10 @@ export const Contact = () => {
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
                   <p className="text-muted-foreground">London, United Kingdom</p>
+                </div>
+                <div className="flex items-center">
+                  <Phone className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
+                  <p className="text-muted-foreground">+383 48 878 111</p>
                 </div>
               </div>
             </CardContent>
