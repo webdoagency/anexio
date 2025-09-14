@@ -2,55 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Anexio Group Design System - Professional Corporate Theme
+/* Anexio Group Design System - Futuristic Corporate Theme
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 216 30% 15%;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 216 30% 15%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 216 30% 15%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 95%;
 
     /* Dark Royal Blue - Primary Brand Color */
-    --primary: 220 85% 25%;
+    --primary: 220 85% 45%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 220 85% 35%;
-    --primary-dark: 220 85% 15%;
+    --primary-light: 220 85% 55%;
+    --primary-dark: 220 85% 25%;
+    --primary-glow: 220 100% 70%;
 
-    --secondary: 220 15% 95%;
-    --secondary-foreground: 216 30% 15%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 220 15% 96%;
-    --muted-foreground: 220 15% 45%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 220 20% 92%;
-    --accent-foreground: 216 30% 15%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 95%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
-    --ring: 220 85% 25%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 220 85% 45%;
 
-    /* Corporate gradients */
+    /* Futuristic gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-glow: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--primary-glow) / 0.05));
+    --gradient-dark: linear-gradient(180deg, hsl(var(--background)), hsl(0 0% 2%));
+    --gradient-mesh: radial-gradient(ellipse at top, hsl(var(--primary) / 0.1), transparent 50%), 
+                     radial-gradient(ellipse at bottom right, hsl(var(--primary-glow) / 0.05), transparent 50%);
     
-    /* Professional shadows */
-    --shadow-corporate: 0 4px 20px -4px hsl(var(--primary) / 0.1);
-    --shadow-card: 0 2px 10px -2px hsl(220 15% 25% / 0.1);
+    /* Futuristic shadows */
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.3);
+    --shadow-intense: 0 0 50px hsl(var(--primary-glow) / 0.4);
     
     /* Smooth transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: box-shadow 0.3s ease;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
   }
 
   .dark {
@@ -71,11 +77,17 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-spartan antialiased;
+    background: var(--gradient-mesh);
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight;
+    @apply font-spartan font-bold tracking-tight;
+  }
+
+  .brand-title {
+    @apply font-spartan font-black tracking-wider;
   }
 }
 
@@ -84,16 +96,22 @@ All colors MUST be HSL.
     background: var(--gradient-primary);
   }
   
-  .corporate-shadow {
-    box-shadow: var(--shadow-corporate);
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
   }
   
   .card-shadow {
     box-shadow: var(--shadow-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border));
   }
   
   .transition-smooth {
     transition: var(--transition-smooth);
+  }
+
+  .transition-glow {
+    transition: var(--transition-glow);
   }
 
   .section-padding {
@@ -102,5 +120,17 @@ All colors MUST be HSL.
 
   .container-width {
     @apply max-w-7xl mx-auto;
+  }
+
+  .futuristic-grid {
+    background-image: 
+      linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--primary-glow) / 0.5);
   }
 }
