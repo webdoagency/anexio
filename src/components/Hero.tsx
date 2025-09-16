@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import futuristicBg from "@/assets/futuristic-bg.jpg";
+import anexioLogo from "@/assets/anexio-logo.png";
 
 export const Hero = () => {
   return (
@@ -16,10 +17,14 @@ export const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container-width text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-6xl md:text-8xl brand-title mb-8 tracking-tight">
-            <span className="text-foreground glow-text">ANEXIO</span>{" "}
-            <span className="corporate-gradient bg-clip-text text-transparent">GROUP</span>
-          </h1>
+          <div className="mb-8">
+            <img 
+              src={anexioLogo} 
+              alt="Anexio Group" 
+              className="mx-auto w-80 md:w-96 lg:w-[500px] opacity-95 hover:opacity-100 transition-opacity duration-300"
+              style={{ filter: 'drop-shadow(0 0 30px hsl(var(--primary-glow) / 0.3))' }}
+            />
+          </div>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed font-light">
             Multi-brand business partner connecting enterprises. 
