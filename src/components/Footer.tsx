@@ -5,43 +5,29 @@ export const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container-width py-16">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
           {/* Brand */}
-          <div className="md:col-span-2">
-            <h2 className="text-3xl brand-title mb-4 glow-text">
+          <div>
+            <h2 className="text-3xl brand-title mb-4">
               ANEXIO GROUP
             </h2>
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
               Multi-brand business partner connecting enterprises. 
               Building exceptional brands and forging lasting partnerships.
             </p>
-            <Button className="corporate-gradient text-white hover:glow-effect transition-glow">
+            <Button className="corporate-gradient text-white hover:shadow-lg transition-shadow">
               <Mail className="w-4 h-4 mr-2" />
               contact@anexiogroup.com
             </Button>
           </div>
 
-          {/* Locations */}
+          {/* Contact */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-foreground">PRISHTINA</h3>
+            <h3 className="text-lg font-bold mb-4 text-foreground">CONTACT</h3>
             <div className="space-y-3 text-sm text-muted-foreground">
-              <div className="flex items-center">
-                <MapPin className="w-4 h-4 mr-2 text-primary" />
-                <span>Shaqir Igrishta, 10000</span>
-              </div>
               <div className="flex items-center">
                 <Phone className="w-4 h-4 mr-2 text-primary" />
                 <span>+383 48 878 222</span>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-bold mb-4 text-foreground">LONDON</h3>
-            <div className="space-y-3 text-sm text-muted-foreground">
-              <div className="flex items-center">
-                <MapPin className="w-4 h-4 mr-2 text-primary" />
-                <span>United Kingdom</span>
               </div>
               <div className="flex items-center">
                 <Phone className="w-4 h-4 mr-2 text-primary" />

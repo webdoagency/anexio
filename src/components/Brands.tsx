@@ -24,7 +24,7 @@ export const Brands = () => {
     <section className="section-padding">
       <div className="container-width">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl brand-title mb-6 text-foreground glow-text">
+          <h2 className="text-4xl md:text-6xl brand-title mb-6 text-foreground">
             BRANDS
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -36,10 +36,10 @@ export const Brands = () => {
           {brands.map((brand, index) => {
             const IconComponent = brand.icon;
             return (
-              <Card key={index} className="card-shadow hover:glow-effect transition-glow border-0 group cursor-pointer">
+              <Card key={index} className="card-shadow hover:shadow-lg transition-shadow border-0 group cursor-pointer">
                 <CardContent className="p-8">
                   <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 corporate-gradient rounded-2xl flex items-center justify-center mr-6 group-hover:shadow-intense transition-glow">
+                    <div className="w-16 h-16 corporate-gradient rounded-2xl flex items-center justify-center mr-6 group-hover:shadow-lg transition-shadow">
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
                     <div>

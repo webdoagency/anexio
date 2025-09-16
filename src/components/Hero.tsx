@@ -5,13 +5,13 @@ import anexioLogo from "@/assets/anexio-logo.png";
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Futuristic Background */}
+      {/* Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${futuristicBg})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/95" />
-        <div className="absolute inset-0 futuristic-grid" />
+        <div className="absolute inset-0 corporate-grid" />
       </div>
       
       {/* Content */}
@@ -22,7 +22,6 @@ export const Hero = () => {
               src={anexioLogo} 
               alt="Anexio Group" 
               className="mx-auto w-80 md:w-96 lg:w-[500px] opacity-95 hover:opacity-100 transition-opacity duration-300"
-              style={{ filter: 'drop-shadow(0 0 30px hsl(var(--primary-glow) / 0.3))' }}
             />
           </div>
           
@@ -32,7 +31,7 @@ export const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button size="lg" className="corporate-gradient text-white hover:glow-effect transition-glow px-8 py-4 text-lg">
+            <Button size="lg" className="corporate-gradient text-white hover:shadow-lg transition-shadow px-8 py-4 text-lg">
               Explore Brands
             </Button>
             <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white transition-smooth px-8 py-4 text-lg backdrop-blur-sm">

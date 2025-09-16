@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Anexio Group Design System - Futuristic Corporate Theme
+/* Anexio Group Design System - Corporate Professional Theme
 All colors MUST be HSL.
 */
 
@@ -40,21 +40,21 @@ All colors MUST be HSL.
     --input: 0 0% 15%;
     --ring: 220 85% 45%;
 
-    /* Futuristic gradients */
+    /* Professional gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
-    --gradient-glow: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--primary-glow) / 0.05));
+    --gradient-subtle: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--primary-light) / 0.05));
     --gradient-dark: linear-gradient(180deg, hsl(var(--background)), hsl(0 0% 2%));
     --gradient-mesh: radial-gradient(ellipse at top, hsl(var(--primary) / 0.1), transparent 50%), 
-                     radial-gradient(ellipse at bottom right, hsl(var(--primary-glow) / 0.05), transparent 50%);
+                     radial-gradient(ellipse at bottom right, hsl(var(--primary-light) / 0.05), transparent 50%);
     
-    /* Futuristic shadows */
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+    /* Professional shadows */
+    --shadow-subtle: 0 4px 20px hsl(var(--primary) / 0.1);
     --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.3);
-    --shadow-intense: 0 0 50px hsl(var(--primary-glow) / 0.4);
+    --shadow-elevated: 0 12px 40px hsl(var(--primary) / 0.15);
     
     /* Smooth transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-glow: box-shadow 0.3s ease;
+    --transition-shadow: box-shadow 0.3s ease;
 
     --radius: 1rem;
   }
@@ -96,8 +96,8 @@ All colors MUST be HSL.
     background: var(--gradient-primary);
   }
   
-  .glow-effect {
-    box-shadow: var(--shadow-glow);
+  .subtle-effect {
+    box-shadow: var(--shadow-subtle);
   }
   
   .card-shadow {
@@ -110,8 +110,8 @@ All colors MUST be HSL.
     transition: var(--transition-smooth);
   }
 
-  .transition-glow {
-    transition: var(--transition-glow);
+  .transition-shadow {
+    transition: var(--transition-shadow);
   }
 
   .section-padding {
@@ -122,15 +122,11 @@ All colors MUST be HSL.
     @apply max-w-7xl mx-auto;
   }
 
-  .futuristic-grid {
+  .corporate-grid {
     background-image: 
       linear-gradient(hsl(var(--border)) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
     background-size: 50px 50px;
     opacity: 0.1;
-  }
-
-  .glow-text {
-    text-shadow: 0 0 20px hsl(var(--primary-glow) / 0.5);
   }
 }
