@@ -8,53 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
+    /* Silver Glass Liquid Theme */
+    --background: 210 20% 8%;
     --foreground: 0 0% 95%;
 
-    --card: 0 0% 7%;
+    --card: 210 15% 12%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 7%;
+    --popover: 210 15% 12%;
     --popover-foreground: 0 0% 95%;
 
-    /* Dark Royal Blue - Primary Brand Color */
-    --primary: 220 85% 45%;
+    /* Dark Royal Navy Blue - Primary Brand Color */
+    --primary: 220 95% 15%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 220 85% 55%;
-    --primary-dark: 220 85% 25%;
+    --primary-light: 220 85% 25%;
+    --primary-dark: 220 95% 8%;
     --primary-glow: 220 100% 70%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 95%;
+    /* Silver accents */
+    --secondary: 210 10% 85%;
+    --secondary-foreground: 210 15% 15%;
 
-    --muted: 0 0% 8%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 210 15% 20%;
+    --muted-foreground: 210 10% 65%;
 
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 95%;
+    --accent: 210 20% 90%;
+    --accent-foreground: 210 15% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
-    --ring: 220 85% 45%;
+    --border: 210 15% 25%;
+    --input: 210 15% 18%;
+    --ring: 220 95% 15%;
 
-    /* Professional gradients */
+    /* Silver Glass Liquid gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
-    --gradient-subtle: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--primary-light) / 0.05));
-    --gradient-dark: linear-gradient(180deg, hsl(var(--background)), hsl(0 0% 2%));
-    --gradient-mesh: radial-gradient(ellipse at top, hsl(var(--primary) / 0.1), transparent 50%), 
-                     radial-gradient(ellipse at bottom right, hsl(var(--primary-light) / 0.05), transparent 50%);
+    --gradient-silver: linear-gradient(135deg, hsl(210 15% 85% / 0.1), hsl(210 25% 95% / 0.05));
+    --gradient-glass: linear-gradient(180deg, hsl(210 20% 12% / 0.8), hsl(210 25% 8% / 0.9));
+    --gradient-liquid: radial-gradient(ellipse at top left, hsl(210 30% 90% / 0.08), transparent 50%), 
+                       radial-gradient(ellipse at bottom right, hsl(220 95% 15% / 0.1), transparent 50%);
     
-    /* Professional shadows */
-    --shadow-subtle: 0 4px 20px hsl(var(--primary) / 0.1);
-    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.3);
-    --shadow-elevated: 0 12px 40px hsl(var(--primary) / 0.15);
+    /* Glass morphism shadows */
+    --shadow-glass: 0 8px 32px hsl(210 25% 8% / 0.4);
+    --shadow-liquid: 0 4px 20px hsl(210 30% 90% / 0.1);
+    --shadow-elevated: 0 12px 40px hsl(220 95% 15% / 0.2);
     
-    /* Smooth transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-shadow: box-shadow 0.3s ease;
+    /* Smooth liquid transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glass: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --radius: 1rem;
   }
@@ -78,7 +80,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-spartan antialiased;
-    background: var(--gradient-mesh);
+    background: var(--gradient-liquid);
     min-height: 100vh;
   }
 
@@ -96,22 +98,29 @@ All colors MUST be HSL.
     background: var(--gradient-primary);
   }
   
-  .subtle-effect {
-    box-shadow: var(--shadow-subtle);
+  .glass-effect {
+    box-shadow: var(--shadow-glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--border));
   }
   
   .card-shadow {
-    box-shadow: var(--shadow-card);
-    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-glass);
+    backdrop-filter: blur(16px);
     border: 1px solid hsl(var(--border));
+    background: hsl(var(--card) / 0.8);
+  }
+  
+  .liquid-effect {
+    box-shadow: var(--shadow-liquid);
   }
   
   .transition-smooth {
     transition: var(--transition-smooth);
   }
 
-  .transition-shadow {
-    transition: var(--transition-shadow);
+  .transition-glass {
+    transition: var(--transition-glass);
   }
 
   .section-padding {

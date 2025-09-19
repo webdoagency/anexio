@@ -29,15 +29,6 @@ export const Hero = () => {
             Multi-brand business partner connecting enterprises. 
             We build exceptional brands and forge lasting partnerships in the digital future.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button size="lg" className="corporate-gradient text-white hover:shadow-lg transition-shadow px-8 py-4 text-lg">
-              Explore Brands
-            </Button>
-            <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white transition-smooth px-8 py-4 text-lg backdrop-blur-sm">
-              Partner With Us
-            </Button>
-          </div>
         </div>
       </div>
     </section>
