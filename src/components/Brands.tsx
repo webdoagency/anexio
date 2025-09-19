@@ -36,17 +36,17 @@ export const Brands = () => {
           {brands.map((brand, index) => {
             const IconComponent = brand.icon;
             return (
-              <Card key={index} className="card-shadow hover:shadow-lg transition-shadow border-0 group cursor-pointer">
+              <Card key={index} className="liquid-glass hover:shadow-lg transition-glass border-0 group cursor-pointer">
                 <CardContent className="p-8">
                   <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 corporate-gradient rounded-2xl flex items-center justify-center mr-6 group-hover:shadow-lg transition-shadow">
+                    <div className="w-16 h-16 corporate-gradient rounded-3xl flex items-center justify-center mr-6 group-hover:shadow-lg transition-glass">
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
                     <div>
                       <h3 className="text-2xl brand-title text-foreground mb-2">{brand.name}</h3>
                       <div className="flex flex-wrap gap-2">
                         {brand.tags.map((tag, tagIndex) => (
-                          <span key={tagIndex} className="px-3 py-1 text-xs bg-primary/20 text-primary rounded-full">
+                          <span key={tagIndex} className="px-3 py-1 text-xs glass-button text-primary rounded-full transition-bounce hover:scale-105">
                             {tag}
                           </span>
                         ))}
@@ -58,7 +58,7 @@ export const Brands = () => {
                     {brand.description}
                   </p>
 
-                  <Button variant="ghost" className="text-primary hover:text-primary-light hover:bg-primary/10 transition-smooth group/btn">
+                  <Button variant="ghost" className="glass-button text-primary hover:text-primary-light transition-glass group/btn">
                     Learn More
                     <ExternalLink className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                   </Button>

@@ -8,14 +8,14 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Silver Glass Liquid Theme */
-    --background: 210 20% 8%;
-    --foreground: 0 0% 95%;
+    /* Liquid Glass Theme */
+    --background: 220 30% 3%;
+    --foreground: 0 0% 98%;
 
-    --card: 210 15% 12%;
+    --card: 220 25% 8%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 210 15% 12%;
+    --popover: 220 25% 8%;
     --popover-foreground: 0 0% 95%;
 
     /* Dark Royal Navy Blue - Primary Brand Color */
@@ -25,38 +25,49 @@ All colors MUST be HSL.
     --primary-dark: 220 95% 8%;
     --primary-glow: 220 100% 70%;
 
-    /* Silver accents */
-    --secondary: 210 10% 85%;
-    --secondary-foreground: 210 15% 15%;
+    /* Glass accents */
+    --secondary: 220 20% 90%;
+    --secondary-foreground: 220 30% 10%;
 
-    --muted: 210 15% 20%;
-    --muted-foreground: 210 10% 65%;
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 15% 70%;
 
-    --accent: 210 20% 90%;
-    --accent-foreground: 210 15% 15%;
+    --accent: 220 25% 95%;
+    --accent-foreground: 220 30% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 15% 25%;
-    --input: 210 15% 18%;
+    --border: 220 30% 25%;
+    --input: 220 25% 12%;
     --ring: 220 95% 15%;
 
-    /* Silver Glass Liquid gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
-    --gradient-silver: linear-gradient(135deg, hsl(210 15% 85% / 0.1), hsl(210 25% 95% / 0.05));
-    --gradient-glass: linear-gradient(180deg, hsl(210 20% 12% / 0.8), hsl(210 25% 8% / 0.9));
-    --gradient-liquid: radial-gradient(ellipse at top left, hsl(210 30% 90% / 0.08), transparent 50%), 
-                       radial-gradient(ellipse at bottom right, hsl(220 95% 15% / 0.1), transparent 50%);
+    /* Liquid Glass gradients */
+    --gradient-primary: linear-gradient(135deg, 
+      hsl(220 95% 15% / 0.9), 
+      hsl(220 85% 25% / 0.8));
+    --gradient-glass: linear-gradient(135deg, 
+      hsl(220 25% 95% / 0.05), 
+      hsl(220 30% 98% / 0.02));
+    --gradient-liquid-bg: radial-gradient(ellipse at 30% 20%, hsl(220 95% 15% / 0.15), transparent 70%),
+                          radial-gradient(ellipse at 70% 80%, hsl(220 85% 25% / 0.1), transparent 70%),
+                          radial-gradient(ellipse at 20% 80%, hsl(220 30% 90% / 0.05), transparent 50%);
+    --gradient-card: linear-gradient(135deg,
+      hsl(220 25% 8% / 0.4),
+      hsl(220 30% 12% / 0.3));
     
-    /* Glass morphism shadows */
-    --shadow-glass: 0 8px 32px hsl(210 25% 8% / 0.4);
-    --shadow-liquid: 0 4px 20px hsl(210 30% 90% / 0.1);
-    --shadow-elevated: 0 12px 40px hsl(220 95% 15% / 0.2);
+    /* Glass morphism effects */
+    --glass-blur: blur(20px);
+    --glass-border: 1px solid hsl(220 30% 95% / 0.1);
+    --shadow-glass-soft: 0 8px 32px hsl(220 95% 15% / 0.15);
+    --shadow-glass-hard: 0 20px 60px hsl(220 95% 15% / 0.25);
+    --shadow-liquid: 0 4px 24px hsl(220 30% 90% / 0.08);
+    --shadow-floating: 0 25px 50px hsl(220 95% 15% / 0.3);
     
-    /* Smooth liquid transitions */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-glass: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Liquid transitions */
+    --transition-liquid: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-glass: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 1rem;
   }
@@ -80,8 +91,23 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-spartan antialiased;
-    background: var(--gradient-liquid);
+    background: var(--gradient-liquid-bg);
     min-height: 100vh;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 50%, hsl(220 95% 15% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(220 85% 25% / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(220 30% 90% / 0.03) 0%, transparent 50%);
+    z-index: -1;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -94,33 +120,60 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  .corporate-gradient {
-    background: var(--gradient-primary);
+  /* Liquid Glass Components */
+  .liquid-glass {
+    background: var(--gradient-card);
+    backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    box-shadow: var(--shadow-glass-soft);
+    border-radius: 24px;
   }
   
-  .glass-effect {
-    box-shadow: var(--shadow-glass);
-    backdrop-filter: blur(16px);
-    border: 1px solid hsl(var(--border));
+  .liquid-glass:hover {
+    box-shadow: var(--shadow-glass-hard);
+    transform: translateY(-2px);
+    border-color: hsl(220 30% 95% / 0.2);
+  }
+  
+  .corporate-gradient {
+    background: var(--gradient-primary);
+    backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    box-shadow: var(--shadow-glass-soft);
+  }
+  
+  .glass-button {
+    background: hsl(220 25% 95% / 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(220 30% 95% / 0.1);
+    box-shadow: 0 4px 16px hsl(220 95% 15% / 0.1);
+  }
+  
+  .glass-button:hover {
+    background: hsl(220 25% 95% / 0.1);
+    box-shadow: 0 8px 24px hsl(220 95% 15% / 0.2);
+    transform: translateY(-1px);
   }
   
   .card-shadow {
-    box-shadow: var(--shadow-glass);
-    backdrop-filter: blur(16px);
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--card) / 0.8);
+    @apply liquid-glass;
   }
   
-  .liquid-effect {
-    box-shadow: var(--shadow-liquid);
+  .floating-element {
+    box-shadow: var(--shadow-floating);
+    backdrop-filter: blur(24px);
   }
   
   .transition-smooth {
-    transition: var(--transition-smooth);
+    transition: var(--transition-liquid);
   }
 
   .transition-glass {
     transition: var(--transition-glass);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
   }
 
   .section-padding {
@@ -131,11 +184,24 @@ All colors MUST be HSL.
     @apply max-w-7xl mx-auto;
   }
 
-  .corporate-grid {
+  .liquid-grid {
     background-image: 
-      linear-gradient(hsl(var(--border)) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
-    background-size: 50px 50px;
-    opacity: 0.1;
+      radial-gradient(circle at 1px 1px, hsl(220 30% 95% / 0.03) 1px, transparent 0);
+    background-size: 40px 40px;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    25% { transform: translateY(-10px) translateX(5px); }
+    50% { transform: translateY(0px) translateX(-5px); }
+    75% { transform: translateY(10px) translateX(5px); }
+  }
+
+  .glass-overlay {
+    background: linear-gradient(135deg, 
+      hsl(220 25% 95% / 0.02), 
+      hsl(220 30% 98% / 0.01));
+    backdrop-filter: blur(8px);
   }
 }
